@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Grid from "@material-ui/core/Grid";
@@ -46,6 +46,13 @@ const ProductDetails = (props) => {
                     }}
                   >
                     Home Page
+                  </button>
+                  <button
+                    onClick={() => {
+                      <Redirect to='/update-product'/>
+                    }}
+                  >
+                    Update Product
                   </button>
                 </>
               )}
