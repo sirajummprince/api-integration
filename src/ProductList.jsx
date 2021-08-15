@@ -3,15 +3,21 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import {setProductListToStore} from './store/action';
+import { useDispatch } from "react-redux";
 
 const ProductList = () => {
+  const dispatch = useDispatch();
   const [productList, setProductList] = useState([]);
   const history = useHistory();
+
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
         setProductList(response.data);
+        dispatch(setProductListToStore(response.data));
       })
       .catch();
   }, []);
@@ -37,13 +43,13 @@ const ProductList = () => {
                   />
                   <p>{product.description}</p>
                   <p>{product.category}</p>
-                  <button
+                  <Button
                     onClick={() => {
                       seeDetails(product.id);
                     }}
                   >
                     See Details
-                  </button>
+                  </Button>
                 </Grid>
               );
             })}

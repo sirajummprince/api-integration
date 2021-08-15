@@ -5,8 +5,8 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 
 const ProductDetails = (props) => {
-  const { id } = useParams();
-  const [productDetails, setProductDetails] = useState();
+  const  id  = useParams();
+  const [productDetails, setProductDetails] = useState([]);
 
   useEffect(() => {
     axios
@@ -19,7 +19,7 @@ const ProductDetails = (props) => {
       });
   },[id]);
 
-  //   const seeDetails=(id)=>{
+  //  const seeDetails=(id)=>{
   //     history.push()
   //   }
 

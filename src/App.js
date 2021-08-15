@@ -71,9 +71,9 @@ const App = () => {
               <Route exact path="/add-product">
                 <AddProduct />
               </Route>
-              <Route path="*">
+              {/* <Route path="*">
                 <Error404 />
-              </Route>
+              </Route> */}
             </Switch>
           </Grid>
         </Grid>

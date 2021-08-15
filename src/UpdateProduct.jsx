@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useHistory, useParams} from "react-router";
 import axios from "axios";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button"
 
-const UpdateProduct = () => {
-  const { id } = useParams();
+const UpdateProduct = (props) => {
+  const id = useParams();
   const [product, setProduct] = useState({
     name: "",
     description: "",
@@ -44,40 +45,40 @@ const UpdateProduct = () => {
           <div>
             <p>Product Name</p>
             <input
-              value={product.name}
+              defaultvalue={product.name}
               onChange={(e) => updateProduct(e, "name")}
             />
           </div>
           <div>
             <p>Product Description</p>
             <input
-              value={product.description}
+              defaultValue={product.description}
               onChange={(e) => updateProduct(e, "description")}
             />
           </div>
           <div>
             <p>Product Price</p>
             <input
-              value={product.price}
+              defaultvalue={product.price}
               onChange={(e) => updateProduct(e, "price")}
             />
           </div>
           <div>
             <p>Product Category</p>
             <input
-              value={product.category}
+              defaultvalue={product.category}
               onChange={(e) => updateProduct(e, "category")}
             />
           </div>
           <div>
             <p>Product Image</p>
             <input
-              value={product.image}
+              defaultvalue={product.image}
               onChange={(e) => updateProduct(e, "image")}
             />
           </div>
           <div>
-            <button onClick={updateProductButton}>Update Product</button>
+            <Button onClick={updateProductButton}>Update Product</Button>
           </div>
         </Grid>
       </Grid>
